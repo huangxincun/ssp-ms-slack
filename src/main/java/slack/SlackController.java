@@ -85,14 +85,6 @@ public class SlackController {
 		return null;
 	}
 
-	@RequestMapping(value = "/approve", method = RequestMethod.POST, consumes = { "application/json" })
-	@ResponseBody
-	public Response approve(@Valid @RequestBody Channel channel) {
-		StringBuilder url = new StringBuilder("https://hooks.slack.com/services/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");
-		this.getResponse(url.toString(), channel.getJson(), String.class, HttpMethod.POST);
-		return null;
-	}
-
 	protected <T> ResponseEntity<T> getResponse(String url, T contents, Class<T> type, HttpMethod method) {
 		HttpHeaders headers = new HttpHeaders();
 		headers.add(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON_VALUE);
